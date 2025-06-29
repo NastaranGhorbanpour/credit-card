@@ -1,6 +1,6 @@
 # credit-card
 ### responsive
-[Image](https://github.com/user-attachments/assets/931fcfed-5ed1-4a85-85c3-407f422e04fe)
+![Image](https://github.com/user-attachments/assets/bcecbf33-9abb-4270-90da-4b9e1a84c20a)
  
 - [Demo Project](https://nastaranghorbanpour.github.io/mouseZoom/)
 - Developed by Nastaran Ghorbanpour
