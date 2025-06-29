@@ -1,0 +1,67 @@
+@import "tailwindcss";
+
+@layer utilities{
+    input{
+        height: 50px;
+        border: 1px solid #CDD4DE;
+        border-radius: 5px;
+        color: #585c61;
+        transition: 0.4s;
+        outline: none;
+        padding-inline: 10px;
+        &:hover{
+            border: 1px solid #3773d9;
+        }
+    }
+    h2{
+        color: #224363;
+        font-size: 15px;
+    }
+    h3{
+        color: white;
+        font-size: 20px;
+    }
+    h4{
+        color: #B3B3BB;
+        font-size: 15px;
+    }
+    #card{
+        background-image: url(../img/card-bg.jpeg);
+        background-size: cover;
+        &::before{
+            content: '';
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.305);
+            z-index: 1000;
+        }
+    }
+    .myBorder{
+        border: 2px solid white;
+        border-radius: 10px;
+    }
+}
+
+@layer theme{
+    .firstAnime{
+        animation: bdr1 3s ease-out infinite alternate;
+    }
+    .secondAnime{
+        animation: bdr2 3s ease-out alternate infinite;
+    }
+}
+
+@keyframes bdr1{
+    0%{border-radius: 58% 34% 42% 37% / 52% 30% 68% 44%  ;}
+    50%{border-radius: 34% 54% 30% 59% / 75% 59% 36% 33% ;}
+    100%{border-radius: 61% 43% 75% 27% / 87% 33% 46% 20%  ;}
+}
+@keyframes bdr2{
+    0%{border-radius: 61% 43% 75% 27% / 87% 33% 46% 20%  ;}
+    50%{border-radius: 58% 34% 42% 37% / 52% 30% 68% 44%  ;}
+    100%{border-radius: 34% 54% 30% 59% / 75% 59% 36% 33%   ;}
+}
+@font-face {
+    font-family: caveat;
+    src: url(../font/Caveat-Bold.ttf);
+}

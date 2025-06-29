@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="assets/style/output.css">
+    <link rel="stylesheet" href="assets/font/css/fontello.css">
+</head>
+<body class="bg-[#DDEEFC] relative w-full min-h-[100vh]">
+    <section class="w-[570px] h-[670px] my-[100px] mx-auto flex flex-wrap justify-center relative *:rounded-2xl">
+        <div id="card" class="w-[430px] h-[260px] z-30 bg-amber-400 relative">
+
+            <img class="w-[60px] absolute top-5 left-5" src="assets/img/chip.png" alt="">
+            <img class="w-[85px] absolute top-6 right-5" src="assets/img/visa.png" alt="">
+
+            <div id="cardNumShow" class="duration-500 px-2 w-full absolute top-[110px] flex *:flex *:justify-center *:text-3xl *:w-1/4   *:text-white ">
+                <p>####</p>
+                <p>####</p>
+                <p>####</p>
+                <p>####</p>
+            </div>
+
+            <div class="w-2/5 absolute bottom-5 left-5 duration-500">
+                <h4>Card Holder</h4>
+                <h3 class="uppercase" id="nameShow">FULL NAME</h3>
+            </div>
+
+            <div class="w-1/5 absolute bottom-5 left-[200px] duration-500">
+                <h4>CVV2</h4>
+                <h3 id="cvv2Show">###</h3>
+            </div>
+
+            <div class="w-1/5 absolute bottom-5 right-5 duration-500">
+                <h4>Expires</h4>
+                <div id="date" class="flex ">
+                    <h3>MM</h3>
+                    <span class="text-white text-[20px]"> / </span>
+                    <h3>YY</h3>
+                </div>
+            </div>
+            
+
+        </div>
+
+
+
+        <div id="information" class="w-full h-[630px] absolute top-[130px] bg-white shadow-2xl ">
+
+
+            <section class="w-full h-2/3 absolute top-[200px] px-10 ">
+                <h2>Card Number</h2>
+                <div id="cardNumInp" class="flex w-full *:w-1/4 mb-5 *:mx-0.5">
+                    <input type="text">
+                    <input type="text">
+                    <input type="text">
+                    <input type="text">
+                </div>
+
+
+                <h2>Card Holder</h2>
+                <input id="name" type="text" class="border-1  w-full mb-5">
+
+                <div id="row3" class="w-full flex flex-wrap my-3  ">
+                    <h2 class="w-2/3 mb-3">Expiration Date</h2>
+                    <h2 class="w-1/3 mb-3">CVV2</h2>
+                    <input id="monthInp" class="w-[150px] mr-2 " type="text" placeholder="MM">
+                    <input id="yearInp" class="w-[150px]  " type="text" placeholder="YY">
+                    <input id="cvv2Inp" class="w-[150px] ml-5 " type="text">
+                </div>
+                <button class="w-full h-[60px] shadow-md shadow-[#3773d9] text-white text-2xl my-5 bg-[#2364D2]">Submit</button>
+            </section>
+        </div>
+    </section>
+
+
+    <figure class="group z-50 w-[150px] h-[150px] absolute bottom-[40px] left-[25px] ">
+
+
+        <img class="w-full h-full object-cover absolute top-0 left-0 firstAnime" src="assets/img/me.JPG" alt="">
+
+        <figcaption class="font-[caveat] absolute -bottom-[25px] left-0 text-[18px] text-[rgb(148, 87, 67)]">Nastaran Ghorbanpour</figcaption>
+
+        <a href="https://github.com/NastaranGhorbanpour" class="icon-github-circled decoration-0 w-[15px] h-[15px] absolute right-[40%] text-[20px] -z-10 duration-1000 text-[rgb(85, 57, 21)] hover:text-[rgb(148, 87, 67)] bottom-[20px] group-hover:-right-[20%] group-hover:z-50"></a>
+        <a href="https://www.linkedin.com/in/nastaran-ghorbanpour-027a7b349/" class="icon-linkedin decoration-0 w-[15px] h-[15px] absolute right-[40%] text-[20px] -z-10 duration-1000 text-[rgb(85, 57, 21)] hover:text-[rgb(148, 87, 67)] bottom-[70px] group-hover:-right-[20%] group-hover:z-50"></a>
+        <a href="https://www.instagram.com/nestacode.lab/" class="icon-instagram decoration-0 w-[15px] h-[15px] absolute right-[40%] text-[20px] -z-10 duration-1000 text-[rgb(85, 57, 21)] hover:text-[rgb(148, 87, 67)] bottom-[120px] group-hover:-right-[20%] group-hover:z-50"></a>
+    </figure>
+    
+</body>
+<script>
+    const cardNumInp = document.querySelectorAll('#cardNumInp>input')
+    const cardNumShow = document.querySelectorAll('#cardNumShow>p')
+    const nameInp = document.getElementById('name')
+    const nameShow = document.getElementById('nameShow') 
+    const monthInp = document.getElementById('monthInp')   
+    const yearInp = document.getElementById('yearInp')
+    const date = document.querySelectorAll('#date>h3')
+    const cvv2 = document.getElementById('cvv2Inp')
+    const cvv2Show = document.getElementById('cvv2Show')
+    const allInp = document.querySelectorAll('input')
+
+    
+    allInp.forEach((val)=>{
+        val.addEventListener('blur' , ()=>{
+            val.style.border = '1px solid #CDD4DE'
+        })
+        val.addEventListener('focus' , ()=>{
+            val.style.border = '2px solid #3773d9'
+
+        })
+    })
+    
+    cardNumInp.forEach((val , i)=>{
+        val.addEventListener('keyup' , ()=>{
+
+            if(val.value.length > 3){                
+                val.value = val.value.slice(0,4)
+                if( i < 3){
+                    val.nextElementSibling.focus()
+                }else{
+                    nameInp.focus()
+                }
+            }else if(val.value.length == 0  && i != 0){
+                val.previousElementSibling.focus()
+            }
+            
+            cardNumShow[i].innerHTML = val.value!=0?val.value:'####'
+        })
+        
+    })
+
+    nameInp.addEventListener('keyup' , ()=>{
+        nameShow.innerHTML = nameInp.value!=0?nameInp.value:'FULL NAME'
+    })
+    
+    
+    monthInp.addEventListener('keyup' , ()=>{
+        if(monthInp.value.length > 1){
+            monthInp.value = monthInp.value.slice(0,2)
+            yearInp.focus()
+        }
+
+        date[0].innerHTML = monthInp.value.length!=0?monthInp.value:'MM'
+    })
+    
+    
+    yearInp.addEventListener('keyup' , ()=>{
+        if(yearInp.value.length > 1){
+            yearInp.value = yearInp.value.slice(0,2)
+            cvv2.focus()
+        }
+        date[1].innerHTML = yearInp.value.length!=0?yearInp.value:'YY'
+    })
+    
+
+    cvv2.addEventListener('keyup' , ()=>{
+        cvv2Show.innerHTML = cvv2.value.length!=0?cvv2.value:'###'
+    })
+    
+
+
+
+</script>
+</html>
